@@ -37,7 +37,7 @@ public class BetService {
     }
 
     public void serveBet(Bet bet, Integer winningHorseId){
-        if (Objects.equals(winningHorseId, bet.getBetHorseId())){
+        if (Objects.equals(winningHorseId, bet.getBetHorse().getId())){
             bet.setDidWin(true);
         }
         else {bet.setDidWin(false);}

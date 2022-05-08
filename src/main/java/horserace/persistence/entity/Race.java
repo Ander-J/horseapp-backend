@@ -17,9 +17,8 @@ public class Race {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @ElementCollection
-    @NotEmpty
-    private List<Integer> participantIds;
+    @ManyToMany
+    private List<Horse> participants;
     @NotBlank
     private String track;
     private String date;

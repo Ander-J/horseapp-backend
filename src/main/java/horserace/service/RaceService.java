@@ -64,12 +64,12 @@ public class RaceService {
             );
             throw new CustomNotFoundException(errorMessage);
         }
-        List<Integer> raceResult = race.getParticipantIds();
+        List<Horse> raceResult = race.getParticipants();
         Collections.shuffle(raceResult);
         Results results = new Results(race.getId(), raceResult, race.getTrack(), race.getDate());
         Bet bet = betService.findById(raceId);
         if (bet != null){
-            betService.serveBet(bet, raceResult.get(0));
+            betService.serveBet(bet, raceResult.get(0).getId());
         }
         raceRepository.deleteById(raceId); //race is run and turns into results
         return resultsRepository.save(results);

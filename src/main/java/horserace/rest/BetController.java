@@ -7,6 +7,7 @@ import horserace.persistence.entity.Horse;
 import horserace.rest.mapper.BetDto;
 import horserace.rest.mapper.HorseDto;
 import horserace.rest.mapper.Mapper;
+import horserace.rest.mapper.RaceDto;
 import horserace.service.BetService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -28,6 +29,11 @@ public class BetController extends BaseController {
     @GetMapping()
     public ResponseEntity<List<BetDto>> getAll(){
         return ResponseEntity.ok(betService.findAll().stream().map(mapper::map).collect(Collectors.toList()));
+    }
+
+    @GetMapping("/{betId}")
+    public ResponseEntity<BetDto> getById(@PathVariable Integer betId){
+        return new ResponseEntity<>(mapper.map(betService.findById(betId)), HttpStatus.OK);
     }
 
     @PostMapping("/new")

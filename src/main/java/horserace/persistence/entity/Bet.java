@@ -5,6 +5,7 @@ import lombok.experimental.Accessors;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 @Data
@@ -15,7 +16,7 @@ public class Bet {
     private Integer raceId;
     @NotNull
     private Integer betSize;
-    @NotNull
-    private Integer betHorseId;
+    @ManyToOne
+    private Horse betHorse;
     private boolean didWin;
 }

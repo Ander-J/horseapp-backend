@@ -5,9 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
 @Data
@@ -18,9 +16,9 @@ import java.util.List;
 public class Results {
 
     @Id
-    private Integer id;     //ID of a race and its results will be the same
-    @ElementCollection      //since all races have unique generated id-s, this shouldn't run into issues
-    private List<Integer> finishListing;
+    private Integer id;
+    @ManyToMany     //since all races have unique generated id-s, this shouldn't run into issues
+    private List<Horse> finishListing;
 
     private String track;
 

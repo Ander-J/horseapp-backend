@@ -1,5 +1,6 @@
 package horserace.rest.mapper;
 
+import horserace.persistence.entity.Horse;
 import lombok.Data;
 
 @Data
@@ -7,6 +8,6 @@ public class BetDto {
 
     private Integer raceId;
     private Integer betSize;
-    private Integer betHorseId;
+    private Horse betHorse;
     private boolean didWin;
 }

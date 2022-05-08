@@ -8,7 +8,7 @@ import java.util.List;
 @Data
 public class RaceDto {
     private Integer id;
-    private List<Integer> participantIds;
+    private List<Horse> participants;
     private String track;
     private String date;
 }
